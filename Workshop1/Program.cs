@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// Author : Narendra Kandregula
+// Workshop1 
 namespace Workshop1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            programB8(10.23);
-        }
+            programB11();
+                }
         /**
  * Write a program that will print out your detail in the following format:
  *  Line 1: Name Line 2: Email 
@@ -107,6 +108,36 @@ namespace Workshop1
             double midresult = Math.Round(resultFare, 1, MidpointRounding.AwayFromZero);
             resultFare = System.Convert.ToDouble(String.Format("{0:0.00}", midresult));
             Console.WriteLine("Total fare is  : " +String.Format("{0:0.00}",resultFare));
+        }
+        //In the ABC Taxi Company problem above, calculate the fare so that the fare is always rounded
+        //upwards to the nearest 10 cents. This is harder than the previous problem and requires your ingenuity 
+        static void programB9(double distance)
+        {
+            double resultFare = 2.40 + (distance * 0.40);
+            resultFare = Math.Round(resultFare, 2);
+            double postVal = (resultFare * 100) % 10;
+            if (postVal > 0 && postVal <5)
+            {
+                resultFare = Math.Round(resultFare, 1) + 0.1;
+            }
+            Console.WriteLine("Total fare is : " + Math.Round(resultFare, 1));
+        }
+       /** Consider the simple Geometric example of determining the area of a triangle, given the lengths of its three sides a, b and c.
+        *Use the formula:  AREA = SQUAREROOT[s(s - a)(s - b)(s - c)] where s = (a+b+c) / 2 
+        *Does your program always work? What is the condition when the program will not work and return a real number? Think about a condition to detect the situation where the area cannot be computed.
+        **/
+        static void programB10(double a, double b, double c)
+        {
+            double s = (a + b + c) / 2;
+            double sVal = s * ((s - a) * (s - b) * (s - c));
+            if (sVal > 0)
+            {
+                double area = (int)Math.Sqrt(sVal);
+                Console.WriteLine("--Area----" + area);
+            } else
+            {
+                Console.WriteLine("NAN");
+            }
         }
     }
 }
