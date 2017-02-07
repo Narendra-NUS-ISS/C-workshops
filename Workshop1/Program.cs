@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            programD1();
+            programD3();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -338,11 +338,70 @@ $ 2.40 (first 0.5 km) + $ 85 * 0.04 (next 8.5 km) + $ (122 -90) * 0.05 (for dist
                     condition = true;
                 }
             }
-            {
+        }
 
+        /** Use Euclid's Algorithm given below to determine the LCM and HCF for given two integer numbers. 
+  Take in as input two numbers A and B.
+        Subtract the smaller of the two numbers from the Larger Number and assign the answer to the larger number.
+ The above process is repeated until both the numbers are equal, say X.  Apparently the residual number (X) that we have obtained is the HCF.
+ LCM could then be computed using the formula(A* B)/HCF 
+ Print out your answers.  **/
+
+          public static void ProgramD2()
+           {
+            Console.WriteLine("Enter number1 : ");
+            String input_x = Console.ReadLine();
+            Console.WriteLine("Enter number2 : ");
+            String input_y = Console.ReadLine();
+            int A = System.Convert.ToInt32(input_x);
+            int B = System.Convert.ToInt32(input_y);
+            int x= System.Convert.ToInt32(input_x);
+            int y = System.Convert.ToInt32(input_y);
+            while (A != B)
+            {
+                int large = Math.Max(A, B);
+                int small = Math.Min(A, B);
+                large = large - small;
+                A = large;
+                B = small;
+            }
+            Console.WriteLine("HCF  : " + A);
+            Console.WriteLine("LCM   :" + (x * y) / A);
             }
 
-        }
+        /** The program uses the random number function to first “think of” a number. 
+         *  It should then prompt you for a guess.  If your guess is correct, 
+         *  then it would congratulate you and tell out how many attempts that you took to make the guess.
+         **/
+         public static void programD3()
+        {
+           
+            Random random = new Random();
+            int randomNumber = random.Next(1, 10);
+            bool condition = false;
+            int i = 0;
+            while (!condition)
+            {
+                i++;
+                Console.WriteLine("Enter a number : ");
+                String numVal = Console.ReadLine();
+                int number = System.Convert.ToInt32(numVal);
+                if (randomNumber.Equals(number))
+                {
+                    Console.WriteLine("Congratulations you are successfull at attempt :" + i);
+                    condition = true;
+                } else if(i == 2)
+                {
+
+                }
+                
+            }
+
+        }   
+
+
+
+
 
 
     }
