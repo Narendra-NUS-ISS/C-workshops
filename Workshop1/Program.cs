@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            programD4();
+            ProgramE6();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -439,7 +439,12 @@ $ 2.40 (first 0.5 km) + $ 85 * 0.04 (next 8.5 km) + $ (122 -90) * 0.05 (for dist
                 }
             }
         }
-        
+
+        /**
+        Using iteration write a C# program to determine the square root of a given number (N). If required, your instructor would explain the method using a numerical example.  Many efficient methods are available; we use a simple one for demonstrating the looping. 
+STEPS: 
+a.Take as input the number for finding the square root.b.Take a random number between 1 and N using the function RND.Let the integer be called a Guess, G (not necessarily an integer).  c.If the Guess is correct then G* G should be N.d.If not use the following formula iteratively until G* G approximates to N to an accuracy of 5 decimal places:    G     = (G +  N/G)   
+    **/
         public static void programD4()
         {
             while (true) { 
@@ -487,6 +492,172 @@ $ 2.40 (first 0.5 km) + $ 85 * 0.04 (next 8.5 km) + $ (122 -90) * 0.05 (for dist
         }
 
 
+        /** Given a number find out its factorial.    
+Write two different C# program variations for the problem: a. Using increment counter  b. Using a decrement counter. 
+Carefully study the similarities and differences between the two approaches. List the conditions, if any, under which your program is likely to fail 
+ **/
+        public static void programE1()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter your number : ");
+                int n = int.Parse(Console.ReadLine());
+                int factorial = 1;
+                // Approach 1 . increment operator
+                for(int i=1; i <= n; i++)
+                {
+                    factorial = factorial * i;
+                }
+                Console.WriteLine("Factorial with increment  : " + factorial);
+
+                int factorialResult = 1;
+                for(int j=n; j > 0; j--)
+                {
+                    factorialResult = factorialResult * j;
+                }
+                Console.WriteLine("Factorial with decrement  : " + factorialResult);
+            }
+
+        }
+
+        /** Write a program to print all numbers between 1 and 10 with the values of its inverse, square root and square as below: 
+ 
+                     NO  INVERSE    SQUARE ROOT   SQUARE 
+                 ------------------------------------------------------
+                    1.0             1.0             1.0             1.0
+                    2.0             0.5             1.414           4.0 
+    **/
+                public static void programE2()
+                 {
+            Console.WriteLine("NO  \t  INVERSE  \t  SQUARE ROOT \t  SQUARE ");
+            Console.WriteLine("-------------------------------------------------");
+                    for(double i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(i + " \t " + Math.Round( (1 / i),3) + " \t " +Math.Round( Math.Sqrt(i),3) + " \t " + (i * i));
+            }
+
+        }
+
+        /**
+         * Given an integer as input determine whether the number is a prime number or not.  Your program should output “Prime” or “Not Prime” as the case may be. 
+ 
+A Prime Number is one which is only divisible by one and itself. 
+         **/
+        public static void programE3()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter your number : ");
+                int n = int.Parse(Console.ReadLine());
+                bool isPrime = true;
+                for (int i = 2; i < n; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        Console.WriteLine(" Not Prime");
+                        isPrime = false;
+                        break;
+                    }
+
+                }
+                if (isPrime)
+                {
+                    Console.WriteLine(" Prime");
+                }
+
+            }
+        }
+
+
+        /** Given an integer as input write a C# program to determine whether the number is a Perfect Number or not. 
+ 
+A perfect number is one for which the sum of its factors (including number one) add up to the number itself.  For example number six is a perfect number because,    6 = 1 + 2 + 3. 
+ 
+ **/
+          public static void programE4()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter your number : ");
+                int n = int.Parse(Console.ReadLine());
+                int result = 0;
+                for (int i = 1; i < n; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        result = result + i;
+                    }
+
+                }
+
+                if (result == n)
+                {
+                    Console.WriteLine("Entered number is PERFECT number");
+                }
+                else
+                {
+                    Console.WriteLine("Entered number is NOT PERFECT number");
+                }
+
+            }
+        }
+
+        /** Modify the Prime Number C# program to print out all the prime numbers from 5 to 10000.  **/
+        public static void programE5()
+        {
+            
+            int n = 10000;
+            Console.WriteLine(" Prime numbers from 5 to 1000 are : ");
+            for (int j = 5; j <= n; j++)
+            {
+                bool isPrime = true;
+
+                for (int i = 2; i < j; i++)
+                {
+                    if (j % i == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+
+                }
+                if (isPrime)
+                {
+                    Console.Write(" , " + j);
+                    
+                }
+
+            }
+
+        }
+
+        //Modify the Perfect Number C# program to print out all the perfect numbers from 1 to 1000
+        public static void ProgramE6()
+        {
+
+            int n = 1000;
+            int result = 0;
+            Console.WriteLine(" Perfect numbers from 5 to 1000 are : ");
+            for (int i = 1; i <= n; i++)
+            {
+                result = 0;
+                for (int j = 1; j < i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        result = result + j;
+                    }
+
+                }
+
+                if (result == i)
+                {
+                    Console.WriteLine(i+" , ");
+                }
+               
+            }
+
+        }
 
     }
 }
