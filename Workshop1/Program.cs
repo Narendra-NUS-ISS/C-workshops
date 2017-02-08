@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            ProgramE6();
+            ProgramF1();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -658,6 +658,42 @@ A perfect number is one for which the sum of its factors (including number one) 
             }
 
         }
+
+        /** A company records its monthly sales information in an array of size 12; 
+         * where Sales[0] represents January sales, Sales[1] is February sales etc.
+         *   After entering the data the company wants to perform some queries on the data. 
+         *    Write a program that would do the following: a. Take in the sales for the 12 months.  
+         *      Note: You may use the array initialisation inside the program for storing these. 
+         *       b. Print the month when Maximum Sales is recorded.  
+         *         Note: You may just print 0, 1 etc.  for Jan Feb etc… 
+         *          c. Print the month where Minimum Sales is recorded. 
+         *          d. Print the average monthly sales for the year. 
+         **/
+         public static void ProgramF1()
+        {
+            int[] sales_info = new int[]{1,3,6,4,9,7,8,22,11,18,20,2 };
+
+            int max = sales_info[0];
+            int min = sales_info[0];
+            for(int i = 0; i < sales_info.Length; i++)
+            {
+                // Max logic
+                if(i > max)
+                {
+                    max = sales_info[i];
+                }
+                //min logic
+                if (i < min)
+                {
+                    min = sales_info[i];
+                }
+            }
+            Console.WriteLine("Max number is  : " + max);
+            Console.WriteLine("Min number is :" + min);
+
+        }
+ 
+ 
 
     }
 }
