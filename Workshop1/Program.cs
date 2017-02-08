@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 // Author : Narendra Kandregula
-// Workshop1 
+// C# Workshop( A to H)
 namespace Workshop1
 {
     class Program
