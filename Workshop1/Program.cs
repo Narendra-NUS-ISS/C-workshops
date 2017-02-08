@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            programD3();
+            programD4();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -382,7 +382,7 @@ $ 2.40 (first 0.5 km) + $ 85 * 0.04 (next 8.5 km) + $ (122 -90) * 0.05 (for dist
             int i = 0;
             while (!condition)
             {
-                i++;
+                ++i;
                 Console.WriteLine("Enter a number : ");
                 String numVal = Console.ReadLine();
                 int number = System.Convert.ToInt32(numVal);
@@ -390,17 +390,101 @@ $ 2.40 (first 0.5 km) + $ 85 * 0.04 (next 8.5 km) + $ (122 -90) * 0.05 (for dist
                 {
                     Console.WriteLine("Congratulations you are successfull at attempt :" + i);
                     condition = true;
-                } else if(i == 2)
+                } else
                 {
-
+                   
+                    Console.WriteLine("Try again");
                 }
-                
+                if ((i == 1 || i == 2 )&& condition)
+                {
+                    Console.WriteLine("You are a wizard");
+                    
+                }
+               if(i >2 && i < 6 && condition)
+                {
+                    Console.WriteLine("You are a good Guess !");
+                } else if(i > 2 && i < 10  && !condition)
+                {
+                    Console.WriteLine("You are Lousy");
+                }
+
+
             }
 
         }   
 
+        // Assignment Day4 
+        public static void assignment4()
+        {
+            String pin="123456";
+            bool condition = false;
+            int i = 0;
+            while (!condition)
+            {
+                ++i;
+                Console.WriteLine("Enter your Pin : ");
+                String userPin = Console.ReadLine();
 
+                if (userPin.Equals(pin))
+                {
+                    Console.WriteLine("Pin Accepted. You can access your account now");
+                    condition = true;
+                } else if (i != 3)
+                {
+                    Console.WriteLine("Incorrect pin. Try again");
+                } else if (i==3)
+                {
+                    Console.WriteLine("Too many wrong entires. Account LOCKED");
+                    condition = true;
+                }
+            }
+        }
+        
+        public static void programD4()
+        {
+            while (true) { 
+            Console.WriteLine("Enter your number : ");
+            int N = int.Parse(Console.ReadLine());
+            bool condition = true;
+            Random random = new Random();
+            double G = random.Next(1, N);
+                while (condition)
+                {
+                    if ((G * G) == N)
+                    {
+                        Console.WriteLine("Square root of entered number is  : " + G);
+                        condition = false;
+                    }
+                    if ((G * G) < N && condition)
+                    {
+                        while ((G * G) < N)
+                        {
+                            ++G;
+                        }
+                    }
+                    else
+                    {
+                        while ((G * G) > N)
+                        {
+                            --G;
+                        }
 
+                    }
+
+                    if (condition)
+                    {
+                        while (Math.Round((G * G), 5) != N)
+                        {
+                            G = (G + (N / G)) / 2;
+
+                        }
+                        Console.WriteLine(" Square root of NUmber is : " + Math.Round(G, 5));
+                        condition = false;
+
+                    }
+                }
+            }
+        }
 
 
 
