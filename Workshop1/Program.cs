@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            ProgramF1();
+            MetricNumberValidation();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -692,9 +692,46 @@ A perfect number is one for which the sum of its factors (including number one) 
             Console.WriteLine("Min number is :" + min);
 
         }
- 
- 
 
-    }
+        // Day5 Quiz Validate metric number
+        public static void MetricNumberValidation()
+        {
+            Console.WriteLine("Enter your number : ");
+            String number = Console.ReadLine();
+            if (number.Length != 7 || number[0] != 'A')
+            {
+                Console.WriteLine("Invalid metriculation number");
+            }
+            else
+            {
+                number = number.ToUpper();
+                int length = number.Length;
+                int j = 2;
+                int sum = 0;
+
+                for (int i = length - 2; i > 0; i--)
+                {
+                    int digit = Convert.ToInt32(number[i]);
+                    sum = sum + (digit * j);
+                    ++j;
+                }
+                int remainder = sum % 5;
+                char[] checksumval = new char[] { 'O', 'P', 'Q', 'R', 'S' };
+                int cslength = checksumval.Length;
+                if(checksumval[remainder]== number[length - 1])
+                {
+                    Console.WriteLine("Valid Number");
+                } else
+                {
+                    Console.WriteLine("Invalid number");
+                }
+
+            }
+        }
+
+
+
+
+        }
 }
 
