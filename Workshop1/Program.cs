@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            MetricNumberValidation();
+            ProgramF1();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -675,6 +675,7 @@ A perfect number is one for which the sum of its factors (including number one) 
 
             int max = sales_info[0];
             int min = sales_info[0];
+            int sum = 0;
             for(int i = 0; i < sales_info.Length; i++)
             {
                 // Max logic
@@ -687,10 +688,11 @@ A perfect number is one for which the sum of its factors (including number one) 
                 {
                     min = sales_info[i];
                 }
+                sum = sum + sales_info[i];
             }
             Console.WriteLine("Max number is  : " + max);
             Console.WriteLine("Min number is :" + min);
-
+            Console.WriteLine("Average sales is : "+ sum/12);
         }
 
         // Day5 Quiz Validate metric number
@@ -728,10 +730,31 @@ A perfect number is one for which the sum of its factors (including number one) 
 
             }
         }
-
+        /** The marks of students are stored in a two dimensional array with the subjects
+         *  represented in columns and the students in the rows. 
+         *  That is Row 1 would pertain to Student 1 and the scores
+         *   that this student has obtained is stored in various columns in row 1. 
+         *    Assuming that there are 12 students in a class and 4 subjects, 
+         *    write a program that would do the following: 
+         *   a. Compute the total marks obtained each student.
+         *   b. Compute the class average (and standard deviation* - optional) of Marks for each subject. 
+         *   c. Determine the overall average of marks for the whole class for each subjects.
+         *   d. Optional – make sure that your code works regardless of the number of students and the number of subjects.
+         *   This means that you cannot make any assumption in the code that there are 12 students and 4 subjects.    **/
+         public static void programF3()
+        {
+            Console.WriteLine("Enter number of Students : ");
+            int studentsCount = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter number of subjects : ");
+            int subjectsCount = int.Parse(Console.ReadLine());
 
 
 
         }
+
+
+
+
+    }
 }
 
