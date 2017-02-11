@@ -10,7 +10,7 @@ namespace Workshop1
     {
         public static void Main()
         {
-            SelectionSort();
+            MergeSort();
         }
         // Bubble sort
         // Hint : Exchange sort
@@ -130,6 +130,65 @@ After Iteration 6  :  2 , 3 , 5 , 35 , 45 , 60 , 320 ,
             }
         }
 
+        // MergeSort ( Divide & COnquer)
+        public static void MergeSort()
+        {
+            int[] arr = new int[] { 38, 27, 43, 3, 9, 82, 10 };
+            int length = arr.Length / 2;
+            int[] tempArr = new int[length];
+            int left = 0;
+            int right = length - 1;
+            doMerge(arr, tempArr,left, right);
+            Console.WriteLine("------Merge sort----");
+            for(int i = 0; i < tempArr.Length; i++)
+            {
+                Console.Write(tempArr[i]+" , ");
+            }
+        }
+
+        public static void doMerge(int[] arr, int[] tempArr, int left, int right)
+        {
+            if(arr== null ||arr.Length ==0 || left <= right)
+            {
+                return;
+            }
+            int mid = (left + right) / 2;
+            doMerge(arr, tempArr, left, mid);
+            doMerge(arr, tempArr,left, mid);
+            merge(arr, tempArr, left, mid, right);
+
+        }
+        public static void merge(int[] arr,int[] tempArr,int lower, int mid, int high)
+        {
+            for (int x = lower; x <= high; x++)
+            {
+                tempArr[x] = arr[x];
+            }
+            int i = lower;
+            int j = mid + 1;
+            int k = lower;
+            while (i <= mid && j <= high)
+            {
+                if (tempArr[i] <= tempArr[j])
+                {
+                    arr[k] = tempArr[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = tempArr[j];
+                    j++;
+                }
+                k++;
+            }
+            while (i <= mid)
+            {
+                arr[k] = tempArr[i];
+                k++;
+                i++;
+            }
+           
+        }
 
 
     }

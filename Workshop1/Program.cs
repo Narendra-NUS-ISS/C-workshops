@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            ProgramF1();
+            programF3();
                 }
         /**
  * Write a program that will print out your detail in the following format:
@@ -744,12 +744,62 @@ A perfect number is one for which the sum of its factors (including number one) 
          public static void programF3()
         {
             Console.WriteLine("Enter number of Students : ");
-            int studentsCount = int.Parse(Console.ReadLine());
+            int stu_count = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter number of subjects : ");
-            int subjectsCount = int.Parse(Console.ReadLine());
+            int sub_count = int.Parse(Console.ReadLine());
+
+            int[,] stu_data = new int[stu_count, sub_count];
+
+            // Get student data through console
+            for(int i = 0; i < stu_count; i++)
+            {
+                Console.WriteLine("Enter student  : " + i + " details ");
+                for(int j=0;j< sub_count; j++)
+                {
+                    Console.WriteLine("Enter subject ["+j +"] marks : ");
+                    stu_data[i,j] = int.Parse(Console.ReadLine());
+                }
+            }
+            //a. Compute the total marks obtained each student.
+            for (int i = 0; i < stu_count; i++)
+            {
+                int total = 0;
+                
+                for (int j = 0; j < sub_count; j++)
+                {
+                    total = total + stu_data[i,j];
+                }
+                Console.WriteLine(" Total Marks of Student [" + i + "] is  : "+total);
+                // b. Compute the class average of Marks for each Student. 
+                Console.WriteLine("Average marks obtained by Student [" + i + "] is : " + total / sub_count);
+                // Standard deviation claculation
+                int M = total / sub_count;
+                int N = sub_count;
+                //Variance
+                int variance;
+                int sum = 0;
+                for (int j = 0; j < sub_count; j++)
+                {
+                    sum = sum + ((stu_data[i, j] - M) * (stu_data[i, j] - M));
+                }
+                variance = sum / N;
+                Console.WriteLine(" Variance is --  : " + variance);
+                Console.WriteLine(" Standard deviation is --  : " + Math.Sqrt(variance));
+            }
 
 
-
+            int[] class_avg = new int[sub_count];
+            for (int i = 0; i < stu_count; i++)
+            {
+                for (int j = 0; j < sub_count; j++)
+                {
+                    class_avg[j] = class_avg[j] + stu_data[i, j];
+                }
+            }
+            for(int i=0;i< sub_count; i++)
+            {
+                Console.WriteLine(" Average marks of subject 1  : " + class_avg[i]/stu_count);
+            }
         }
 
 
