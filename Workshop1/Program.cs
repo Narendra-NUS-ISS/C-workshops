@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("-----   : "+GetHex(188));
+            ProgramI1(195);
         }
         /**
  * Write a program that will print out your detail in the following format:
@@ -1071,7 +1071,82 @@ A perfect number is one for which the sum of its factors (including number one) 
         }
             return output;
         }
+        /** Write a static method:  Substitute(string s, char c1, char c2) 
+         * that would return a string.  
+         * The method should find all occurrences of the 
+         *  character c1 in the string s and substitute c1 with character c2.  
+         *  The new word so formed would be the return value of this method. 
+         **/
+         public static String Substitute(String str, char c1, char c2)
+        {
+            String outputStr = "";
+            for(int i=0;i<str.Length;i++)
+            {
+                if(str[i].ToString().ToLower().Equals(c1.ToString().ToLower()))
+                {
+                    outputStr = outputStr + c2;
+                } else
+                {
+                    outputStr = outputStr + str[i];
+                }
+            }
+            return outputStr;
+        }
 
+        /**
+         * You are required to take as input an amount (dollar.cents).
+         *   Assume that the amount is between 5 cents (inputted as 0.05) 
+         *   and 3 dollars 50 cents (inputted as 3.50). 
+         *    Further assume that we would always input nearest to 5 cents
+         *  (i.e., values like 2.23 are not keyed in). 
+         * The duty of your program is to dispense this amount 
+         *   (accurately!) using a combination of coins.  
+         *  We have coins of denomination 100, 50, 20, 10 and 5 cents.
+         *   More than one coin of a denomination can be used. 
+         *   Yeah I know what you are thinking – simply issue all 
+         * five cent coins; right?  Cannot ma - easy but no challenge.
+         * We are requesting the program to use the
+         * “minimum-number-of-coins” principle.
+         *   For example, if a request were made for 1.95 then the computer
+         *  would issue one 100-cent coin, one 50-cent coin, 
+         *  two 20-cent coins and one 5-cent coin. 
+         *   The trick is to always start with the largest denomination 
+         *   and slowly go down.  Try your luck – but don’t loose money!   
+         **/
+         public static void ProgramI1(int input)
+        {
+            int hundreads = 0, fifties =0, twenties = 0, tens = 0, fives = 0;
+            
+            if(input > 100)
+            {
+                hundreads = input / 100;
+                input = input % 100;
+            }
+            if (input > 50)
+            {
+                fifties = input / 50;
+                input = input % 50;
+            }
+            if (input > 20)
+            {
+                twenties = input / 20;
+                input = input % 20;
+            }
+            if (input > 10)
+            {
+                tens = input / 10;
+                input = input % 10;
+            }
+            if (input >= 5)
+            {
+                fives = input / 5;
+            }
+            Console.WriteLine("Number of 100's are  :" + hundreads);
+            Console.WriteLine("Number of 50's are  :" + fifties);
+            Console.WriteLine("Number of 20's are  :" + twenties);
+            Console.WriteLine("Number of 10's are  :" + tens);
+            Console.WriteLine("Number of 5's are  :" + fives);
+        }
 
 
 
