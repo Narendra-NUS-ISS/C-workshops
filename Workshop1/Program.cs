@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            ProgramI1(195);
+            ProgramI3();
         }
         /**
  * Write a program that will print out your detail in the following format:
@@ -1147,6 +1147,75 @@ A perfect number is one for which the sum of its factors (including number one) 
             Console.WriteLine("Number of 10's are  :" + tens);
             Console.WriteLine("Number of 5's are  :" + fives);
         }
+        /** Write a program for the following:
+         *  a. Declare an array of dimension 10 (index 0… 9).
+         *    b. Generate 50 Random integers in the range 0 … 9.
+         *     c. Store the number of occurrences (count) in the array
+         *      appropriately. d. Print a table that would list the numbers
+         *       and the number of occurrences. 
+ 
+        Addition: - Try to print an histogram for the above  
+        - How would the program be affected if the range of numbers randomly
+        generated is between -5 and +5? 
+    **/
+        public static void ProgramI2()
+        {
+            int[] numList = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            Random random = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                int num = random.Next(0, 9);
+                numList[num] = numList[num] + 1;
+            }
+            for (int i = 0; i < numList.Length; i++)
+            {
+                Console.WriteLine("  --  " + i + "  : " + numList[i]);
+            }
+            Console.WriteLine("--------------------");
+            for (int i = 0; i < numList.Length; i++)
+            {
+                int k = numList[i];
+                Console.Write("  --  " + i + "  : ");
+                while (k > 0)
+                {
+                    Console.Write(" * ");
+                    k--;
+                }
+                Console.WriteLine();
+            }
+        }
+
+        /** - How would the program be affected if the range of numbers randomly
+          generated is between -5 and +5? 
+      **/
+        public static void ProgramI3()
+        {
+            int[] numList = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            Random random = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                int num = random.Next(-5, 5);
+                 num = num + 5;
+                numList[num] = numList[num] + 1;
+            }
+            for (int i = 0; i < numList.Length; i++)
+            {
+                Console.WriteLine("  --  " + (i-5) + "  : " + numList[i]);
+            }
+            Console.WriteLine("--------------------");
+            for (int i = 0; i < numList.Length; i++)
+            {
+                int k = numList[i];
+                Console.Write("  --  " + (i-5) + "  : ");
+                while (k > 0)
+                {
+                    Console.Write(" * ");
+                    k--;
+                }
+                Console.WriteLine();
+            }
+        }
+
 
 
 
