@@ -11,7 +11,7 @@ namespace Workshop1
     {
         static void Main(string[] args)
         {
-            ProgramI3();
+            BusCase1(1324.26);
         }
         /**
  * Write a program that will print out your detail in the following format:
@@ -866,7 +866,7 @@ A perfect number is one for which the sum of its factors (including number one) 
         {
             String input = "A Santa at NASA";
             bool isPalindrome = true;
-            
+
             foreach (char c in input)
             {
                 if (!((c >= '0' && c <= '9') || ((c >= 'a') && (c <= 'z'))
@@ -888,7 +888,7 @@ A perfect number is one for which the sum of its factors (including number one) 
                 }
             }
             if (isPalindrome) { Console.WriteLine("Palindrome"); }
-    }
+        }
 
         // The C# language gives facilities for changing cases all to upper or lower 
         //- however, not to title case.  Write a program that would convert
@@ -917,13 +917,13 @@ A perfect number is one for which the sum of its factors (including number one) 
 
         public static void ProgramG4()
         {
-            String[] names = new String[] { "John","Venkat","Mary","Victor","Betty" };
+            String[] names = new String[] { "John", "Venkat", "Mary", "Victor", "Betty" };
             int[] marks = new int[] { 63, 29, 75, 82, 55 };
             int n = marks.Length;
             int temp = 0;
-            for(int i=0; i< n; i++)
+            for (int i = 0; i < n; i++)
             {
-                for(int j = 1; j < (n- i); j++)
+                for (int j = 1; j < (n - i); j++)
                 {
                     if (marks[j - 1] < marks[j])
                     {
@@ -932,7 +932,7 @@ A perfect number is one for which the sum of its factors (including number one) 
                         marks[j] = temp;
                     }
                 }
-               
+
 
             }
             for (int k = 0; k < n; k++)
@@ -947,14 +947,14 @@ A perfect number is one for which the sum of its factors (including number one) 
             {
                 for (int j = 1; j < (n - i); j++)
                 {
-                    if (names[j - 1].CompareTo(names[j])<0)
+                    if (names[j - 1].CompareTo(names[j]) < 0)
                     {
                         name_temp = names[j - 1];
                         names[j - 1] = names[j];
                         names[j] = name_temp;
                     }
                 }
-               
+
 
             }
             for (int k = 0; k < n; k++)
@@ -975,18 +975,18 @@ A perfect number is one for which the sum of its factors (including number one) 
             s2 = s2.ToUpper();
             int s2_len = s2.Length;
 
-            for(int i=0;i< s1.Length; i++) 
+            for (int i = 0; i < s1.Length; i++)
             {
-                if (s2[0] == s1[i] && s2.Length ==1)
+                if (s2[0] == s1[i] && s2.Length == 1)
                 {
                     return true;
                 }
-                 else if (s2[0] == s1[i] && s2.Length>1 && s1.Substring(i, s2.Length).Equals(s2))
+                else if (s2[0] == s1[i] && s2.Length > 1 && s1.Substring(i, s2.Length).Equals(s2))
                 {
                     return true;
-                } 
                 }
-                
+            }
+
             return false;
         }
 
@@ -1063,12 +1063,12 @@ A perfect number is one for which the sum of its factors (including number one) 
                                 break;
                         }
                     }
-             else
-            {
-                output = resVal + output;
+                    else
+                    {
+                        output = resVal + output;
+                    }
+                }
             }
-            }
-        }
             return output;
         }
         /** Write a static method:  Substitute(string s, char c1, char c2) 
@@ -1077,12 +1077,12 @@ A perfect number is one for which the sum of its factors (including number one) 
          *  character c1 in the string s and substitute c1 with character c2.  
          *  The new word so formed would be the return value of this method. 
          **/
-         public static String Substitute(String str, char c1, char c2)
+        public static String Substitute(String str, char c1, char c2)
         {
             String outputStr = "";
-            for(int i=0;i<str.Length;i++)
+            for (int i = 0; i < str.Length; i++)
             {
-                if(str[i].ToString().ToLower().Equals(c1.ToString().ToLower()))
+                if (str[i].ToString().ToLower().Equals(c1.ToString().ToLower()))
                 {
                     outputStr = outputStr + c2;
                 } else
@@ -1113,11 +1113,11 @@ A perfect number is one for which the sum of its factors (including number one) 
          *   The trick is to always start with the largest denomination 
          *   and slowly go down.  Try your luck – but don’t loose money!   
          **/
-         public static void ProgramI1(int input)
+        public static void ProgramI1(int input)
         {
-            int hundreads = 0, fifties =0, twenties = 0, tens = 0, fives = 0;
-            
-            if(input > 100)
+            int hundreads = 0, fifties = 0, twenties = 0, tens = 0, fives = 0;
+
+            if (input > 100)
             {
                 hundreads = input / 100;
                 input = input % 100;
@@ -1195,18 +1195,18 @@ A perfect number is one for which the sum of its factors (including number one) 
             for (int i = 0; i < 50; i++)
             {
                 int num = random.Next(-5, 5);
-                 num = num + 5;
+                num = num + 5;
                 numList[num] = numList[num] + 1;
             }
             for (int i = 0; i < numList.Length; i++)
             {
-                Console.WriteLine("  --  " + (i-5) + "  : " + numList[i]);
+                Console.WriteLine("  --  " + (i - 5) + "  : " + numList[i]);
             }
             Console.WriteLine("--------------------");
             for (int i = 0; i < numList.Length; i++)
             {
                 int k = numList[i];
-                Console.Write("  --  " + (i-5) + "  : ");
+                Console.Write("  --  " + (i - 5) + "  : ");
                 while (k > 0)
                 {
                     Console.Write(" * ");
@@ -1215,10 +1215,137 @@ A perfect number is one for which the sum of its factors (including number one) 
                 Console.WriteLine();
             }
         }
+        /** BusCase 1 
+        – The manager of Dafesty Video Rental wanted to avoid frauds 
+        and hence noticed that the customer bills in the 
+        computer printout gave invoice amount only in 
+        numerals and not in words.  
+        
+        – You are appointed to provide a suitable program.
+        – Write a C# program that would take in as input a
+        number and convert it into words. 
+        Examples as below: 
+ 
+1324.00  Dollar One Thousand Three hundred and Twenty Four only.  463.25  Dollar Four hundred and Sixty Three and Cents Twenty Five only 
+ 
+HINT:   -  Try to achieve as close an answer as possible. 
+        -  Make assumptions/simplification in case of difficulty. 
+        -  You are told that the bill will always be less than 10000. 
+        -  Try to design an efficient methodology using computational logic
+        to the maximum extent.   
+    **/
 
+        public static void BusCase1(double amount)
+        {
+            String input = amount.ToString();
+            String[] values = input.Split('.');
+            double decimalVal = double.Parse(values[1]);
 
+            if (amount > 10000)
+            {
+                return;
+            } else
+            {
+                String value = "Dollar ";
+                int thousands = 0, hundreads = 0, tens = 0, ones = 0;
+                if (amount > 1000)
+                {
+                    thousands = (int)amount / 1000;
+                    amount = amount % 1000;
+                    value = value + GetWord(thousands) + " thousand ";
+                }
+                if (amount > 100)
+                {
+                    hundreads = (int)amount / 100;
+                    amount = amount % 100;
+                    value = value + GetWord(hundreads) + " hundread and";
+                }
+                if (amount > 10 && amount < 100)
+                {
+                    tens = (int)amount / 10;
+                    amount = amount % 10;
+                    value = value + GetTensWord(tens) + " ";
+                }
+               
+                if (amount > 0 && amount < 10)
+                {
+                    ones = (int)amount;
+                    value = value + GetWord(ones) + " and ";
+                }
+                if (decimalVal > 0)
+                {
+                    value = value + " Cents ";
+                }
+                if (decimalVal > 10 && decimalVal < 100)
+                {
+                    tens = (int)decimalVal / 10;
+                    decimalVal = decimalVal % 10;
+                    value = value + GetTensWord(tens) + " ";
+                }
 
+                if (decimalVal > 0 && decimalVal < 10)
+                {
+                    ones = (int)decimalVal;
+                    value = value + GetWord(ones) + " only  ";
+                }
 
-    }
-}
+                Console.WriteLine("Value in words :  " + value);
+
+            }
+        }
+        public static String GetWord(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "one";
+                case 2:
+                    return "two";
+                case 3:
+                    return "three";
+                case 4:
+                    return "four";
+                case 5:
+                    return "five";
+                case 6:
+                    return "six";
+                case 7:
+                    return "seven";
+                case 8:
+                    return "eight";
+                case 9:
+                    return "nine";
+
+            };
+            return "";
+        }
+
+        public static String GetTensWord(int number)
+        {
+            switch (number)
+            {
+                case 1:
+                    return "ten";
+                case 2:
+                    return "twenty";
+                case 3:
+                    return "thirty";
+                case 4:
+                    return "fourty";
+                case 5:
+                    return "fifty";
+                case 6:
+                    return "sixty";
+                case 7:
+                    return "seventy";
+                case 8:
+                    return "eighty";
+                case 9:
+                    return "ninty";
+
+            };
+            return "";
+        }
+    } }
+
 
